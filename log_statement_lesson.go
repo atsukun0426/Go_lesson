@@ -2,21 +2,21 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"os"
 )
 
-/*　エラー出る
 func loggingSettings(logfile string) {
-	logfile, _ := os.OpenFile(logfile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
-	multiLogFile := io.MultiWriter(os.Stdout, logfile)
+	file, _ := os.OpenFile(logfile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	multiLogFile := io.MultiWriter(os.Stdout, file)
 	log.SetFlags(log.Ldate | log.Ltime | log.Llongfile)
 	log.SetOutput(multiLogFile)
 
 }
-*/
+
 func main() {
-	//loggingSettings("test.log")
+	loggingSettings("test.log")
 	_, err := os.Open("hogehoge")
 	if err != nil {
 		log.Fatalln("Exit", err)
